@@ -64,7 +64,8 @@ pkgver() {
 build() {
   cd calamares || return
 
-  export CXXFLAGS+=' -fPIC'
+  export CFLAGS+=' -march=x86-64 -mtune=generic'
+  export CXXFLAGS+=' -fPIC -march=x86-64 -mtune=generic'
 
   cmake -S . -B build \
     -GNinja \

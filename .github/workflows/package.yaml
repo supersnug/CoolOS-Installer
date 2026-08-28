@@ -43,6 +43,13 @@ jobs:
           test "${#packages[@]}" -eq 1
           cp "${packages[0]}" dist/cachyos-calamares-next-x86_64.pkg.tar.zst
 
+          library_path="$(bsdtar -tf "${packages[0]}" | grep -E '^usr/lib/libcalamaresui\.so\.[0-9]+\.[0-9]+\.[0-9]+$')"
+          test -n "$library_path"
+          bsdtar -xOf "${packages[0]}" "$library_path" > /tmp/libcalamaresui.so
+          readelf -n /tmp/libcalamaresui.so | tee /tmp/libcalamaresui.notes
+          grep -q 'x86 ISA used: x86-64-baseline' /tmp/libcalamaresui.notes
+          ! grep -Eq 'x86-64-v[234]' /tmp/libcalamaresui.notes
+
       - name: Publish rolling development package
         uses: softprops/action-gh-release@v2
         with:
