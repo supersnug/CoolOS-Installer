@@ -50,6 +50,12 @@ and an **extensions** repository ([Calamares extensions](https://codeberg.org/Ca
 Contributions to code, modules, documentation, the wiki, and the website are all welcome.
 There is more information in the [CONTRIBUTING.md](CONTRIBUTING.md) file.
 
+## CoolOS Development Package
+
+Pushes to the `cachyos` branch build an Arch package for CoolISO. The latest
+successful build is published as the `cachyos-calamares-next-x86_64.pkg.tar.zst`
+asset on the rolling `development` prerelease.
+
 ## Join the Conversation
 
 Issues are **one** place for discussing Calamares if there are concrete
@@ -63,4 +69,3 @@ in Europe, but feel free to idle.
 Matrix is persistent, and we'll see your message eventually.
 
 * [![Join us on Matrix](https://img.shields.io/badge/Matrix-%23calamares:kde.org-blue)](https://matrix.to/#/#calamares:kde.org) (needs a Matrix account)
-
