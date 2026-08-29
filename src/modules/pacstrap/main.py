@@ -132,12 +132,13 @@ def run():
         base_packages += ["zfs-utils", "linux-cachyos-zfs", "linux-cachyos-lts-zfs"]
     elif is_root_on_btrfs:
         libcalamares.utils.debug("Root on BTRFS")
+        base_packages += ["snapper", "btrfs-assistant", "cachyos-snapper-support"]
         if bootloader == "limine":
-            base_packages += ["snapper", "btrfs-assistant", "limine-snapper-sync" ]
+            base_packages += ["limine-snapper-sync"]
         elif bootloader == "grub":
-            base_packages += ["snapper", "btrfs-assistant", "grub-btrfs-support"]
+            base_packages += ["grub-btrfs-support"]
         elif bootloader == "refind" or bootloader == "refind-ai":
-            base_packages += ["snapper", "btrfs-assistant", "refind-btrfs" ]
+            base_packages += ["refind-btrfs"]
 
     elif is_root_on_bcachefs:
         libcalamares.utils.debug("Root on BCACHEFS")

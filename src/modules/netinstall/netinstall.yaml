@@ -15,6 +15,15 @@
      - linux-cachyos-lts
      - linux-cachyos-lts-headers
      - chwd
+- name: "CoolOS Applications"
+  description: "Applications selected by CoolOS"
+  hidden: false
+  selected: true
+  critical: true
+  packages:
+     - coolos-config
+     - opencode
+     - opencode-desktop
 - name: "CachyOS Packages"
   description: "needed CachyOS packages"
   hidden: false
@@ -27,6 +36,7 @@
      - cachyos-settings
      - cachyos-micro-settings
      - cachyos-wallpapers
+     - cachy-update
 - name: "CachyOS shell configuration"
   description: "Shell packages for CachyOS"
   hidden: false
@@ -60,15 +70,15 @@
         description: "Firewall support"
         selected: true
         packages:
-          - ufw
-          - ufw-extras
+          - firewalld
+          - iptables
+          - nftables
       - name: "bluetooth"
         description: "Bluetooth support"
         selected: true
         packages:
           - bluez
           - bluez-hid2hci
-          - bluez-libs
           - bluez-utils
           - bluez-obex
       - name: "packages management"
@@ -89,13 +99,18 @@
           - ffmpegthumbnailer
           - gst-libav
           - gst-plugin-pipewire
+          - gst-plugin-va
           - gst-plugins-bad
           - gst-plugins-ugly
+          - flatpak
+          - hunspell
+          - hunspell-en_us
           - libdvdcss
           - libgsf
           - libopenraw
           - plocate
           - poppler-glib
+          - speech-dispatcher
           - vlc-plugins-all
           - xdg-user-dirs
           - xdg-utils
@@ -104,6 +119,7 @@
         selected: true
         packages:
           - efitools
+          - 7zip
           - nfs-utils
           - nilfs-utils
           - smartmontools
@@ -149,6 +165,7 @@
           - mtools
           - sg3_utils
           - sof-firmware
+          - clinfo
       - name: "power"
         description: "Powermanagement support"
         selected: true
@@ -156,6 +173,48 @@
           - cpupower
           - power-profiles-daemon
           - upower
+      - name: "System optimization"
+        description: "Performance and memory-management services"
+        selected: true
+        packages:
+          - ananicy-cpp
+          - bpftune-git
+          - cachyos-ananicy-rules
+          - profile-sync-daemon
+          - zram-generator
+      - name: "Development tools"
+        description: "Developer runtimes, build tools, and command-line utilities"
+        selected: true
+        packages:
+          - ast-grep
+          - bat
+          - bun
+          - chezmoi
+          - cmake
+          - fzf
+          - gdb
+          - neovim
+          - ninja
+          - nvm
+          - openbsd-netcat
+          - rustup
+          - screen
+          - shellcheck
+          - uv
+          - zellij
+      - name: "Virtualization and containers"
+        description: "Local container and virtual-machine development"
+        selected: true
+        packages:
+          - docker
+          - docker-buildx
+          - docker-compose
+          - edk2-ovmf
+          - libvirt
+          - qemu-desktop
+          - swtpm
+          - virt-install
+          - virt-manager
       - name: "Some applications selection"
         description: "General tools and applications"
         selected: true
@@ -197,7 +256,6 @@
     - ark
     - bluedevil
     - breeze-gtk
-    - cachy-update
     - cachyos-emerald-kde-theme-git
     - cachyos-iridescent-kde
     - cachyos-kde-settings
@@ -252,7 +310,6 @@
   critical: true
   packages:
     - cachyos-gnome-settings
-    - cachy-update
     - fwupd
     - gdm
     - gnome-text-editor
@@ -346,8 +403,9 @@
   expanded: false
   critical: true
   packages:
-    - cachyos-niri-noctalia
+    - coolos-niri-settings
     - sddm
+    - uwsm
 - name: "Cinnamon"
   description: "Linux desktop which provides advanced innovative features and a traditional user experience."
   description[de]: "Cinnamon ist ein Linux-Desktop, der fortschrittliche innovative Funktionen und ein traditionelles Benutzererlebnis bietet."
