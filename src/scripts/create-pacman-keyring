@@ -9,6 +9,7 @@ pacman-key --init
 # repo. Also try to make multiple attempts in case of failures due to unsynced
 # mirrors.
 for ((i=0; i<5; i++)); do pacman -Sy --noconfirm --needed cachyos-keyring && break; done
+for ((i=0; i<5; i++)); do pacman -Sy --noconfirm --needed coolos-keyring && break; done
 for ((i=0; i<5; i++)); do pacman -Sy --noconfirm --needed archlinux-keyring && break; done
 
-pacman-key --populate
+pacman-key --populate archlinux cachyos coolos

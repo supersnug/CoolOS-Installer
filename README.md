@@ -50,11 +50,11 @@ and an **extensions** repository ([Calamares extensions](https://codeberg.org/Ca
 Contributions to code, modules, documentation, the wiki, and the website are all welcome.
 There is more information in the [CONTRIBUTING.md](CONTRIBUTING.md) file.
 
-## CoolOS Development Package
+## CoolOS Package
 
-Pushes to the `cachyos` branch build an Arch package for CoolISO. The latest
-successful build is published as the `cachyos-calamares-next-x86_64.pkg.tar.zst`
-asset on the rolling `development` prerelease.
+The signed Arch package recipe and publication workflow live in
+[`supersnug/coolos-repo`](https://github.com/supersnug/coolos-repo). Package
+promotions pin a tested commit from this repository.
 
 ## Join the Conversation
 
