@@ -46,6 +46,7 @@ class RepositoryTests(unittest.TestCase):
                 self.assertEqual(output, REPOS.configure(output, target))
                 actual = [line[1:-1] for line in output.splitlines() if line.startswith("[coolos")]
                 self.assertEqual(actual, tiers)
+                self.assertEqual(output.count("Server = https://coolos-repo.sarulean.com/$repo/$arch"), len(tiers))
                 self.assertLess(output.index("[coolos]"), output.index("[cachyos]"))
                 self.assertIn("SigLevel = Required DatabaseOptional", output)
                 self.assertIn("[core]\nInclude = /etc/pacman.d/mirrorlist", output)

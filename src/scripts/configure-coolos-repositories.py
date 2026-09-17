@@ -69,8 +69,7 @@ def configure(text, target):
         raise ValueError("Pacman configuration is missing [options]")
     block = ""
     for repo in REPOSITORIES[first:]:
-        suffix = "" if repo == "coolos" else f"/{repo}"
-        block += f"[{repo}]\nServer = https://coolos-repo.sarulean.com/$arch{suffix}\n\n"
+        block += f"[{repo}]\nServer = https://coolos-repo.sarulean.com/$repo/$arch\n\n"
     match = re.search(r"^\s*\[(?!options\])[^]]+\]", cleaned, re.MULTILINE)
     position = match.start() if match else len(cleaned)
     return cleaned[:position].rstrip() + "\n\n" + block + cleaned[position:].lstrip("\n")
